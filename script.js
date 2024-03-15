@@ -1,8 +1,8 @@
 const generateFrom = document.querySelector(".generate-form");
 const imageGallery = document.querySelector(".image-gallery");
 
-const OPENAI_API_KEY = "xxxx";
-
+const OPENAI_API_KEY = "API KEY HERE";
+let isImageGenerating = false;
 const updateImageCard = (imgDataArray) => {
     imgDataArray.forEach((imgObject,index) => {
         const imgCard = imageGallery.querySelectorAll(".img-card")[index];
@@ -46,12 +46,16 @@ const generateAiImages = async(userPrompt, userImgQuantity) => {
 
     } catch (error) {
         alert(error.message);
+    } finally {
+        isImageGenerating = false;
     }
 }
 
 
 const handleFormSubmission = (e) => {
     e.preventDefault();
+    if(isImageGenerating) return;
+    isImageGenerating = true;
 
     const userPrompt = e.srcElement[0].value;
     const userImgQuantity = e.srcElement[1].value;
