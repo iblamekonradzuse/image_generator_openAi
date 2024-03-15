@@ -10,7 +10,7 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    background: url(bg.jpg);
+    background: url(images/bg.jpg);
     background-color: aliceblue;
     background-size: cover;
     background-position: center;
@@ -91,3 +91,50 @@
    cursor: pointer;
 }
 
+.imgage-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0 15px;
+    max-width: 1250px;
+    margin: 50px 0;
+    justify-content: center;
+}
+
+.imgage-gallery .img-card{
+    width: 285px;
+    aspect-ratio: 1 / 1;
+    border-radius: 5px;
+    overflow: hidden ;
+    position: relative;
+}
+
+.imgage-gallery .img-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imgage-gallery .img-card .download-btn{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgb(255, 255, 255);
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgage-gallery .img-card:hover .download-btn{
+    display: flex;
+
+}
+
+.imgage-gallery .img-card .download-btn img {
+    width: 14px;
+    height: 14px;
+
+}
