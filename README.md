@@ -1,5 +1,5 @@
 # ai_image_generator
-![Alt Text](pre.gif)
+![Alt Text](pre.gif) <br>
 text to image generator using javascript <br>
 used openAI api <br>
 pre loadad images are from google <br>
