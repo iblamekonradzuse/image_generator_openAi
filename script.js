@@ -1,18 +1,21 @@
 const generateFrom = document.querySelector(".generate-form");
 const imageGallery = document.querySelector(".image-gallery");
 
-const OPENAI_API_KEY = "xxxxxx";
+const OPENAI_API_KEY = "xxxx";
 
 const updateImageCard = (imgDataArray) => {
     imgDataArray.forEach((imgObject,index) => {
         const imgCard = imageGallery.querySelectorAll(".img-card")[index];
         const imgElement = imgCard.querySelector("img");
+        const downloadBtn = imgCard.querySelector(".download-btn");
 
         const aiGeneatedImg = `data:image/jpeg;base64,${imgObject.b64_json}`;
         imgElement.src = aiGeneatedImg;
 
         imgElement.onload = () => {
             imgCard.classList.remove("loading");
+            downloadBtn.setAttribute("href", aiGeneatedImg);
+            downloadBtn.setAttribute("download", `${new Date().getTime()}.jpg`);
         }
     });
     
